@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push pymisc/docker_pipeline:latest'
+        sh 'docker push unixadm/ubtest:latest'
       }
     }
 }
