@@ -1,0 +1,12 @@
+#!/bin/bash
+###############################################################################
+# The purpose of this file is to create or touch a file periodically so that
+# when the code syncs github, it will trigger a build.
+###############################################################################
+
+cd /root/gitrepos/docker_pipeline
+
+touch file_for_date_stamp_change_only
+
+git add . ; git commit -am "new changes as of `date`" ; git push
+
