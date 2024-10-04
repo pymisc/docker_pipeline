@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'chmod 755 $HOME'
-        sh 'docker buildx build .'
+        sh 'docker buildx build -t unixadm/ubtest:latest .'
       }
     }
     stage('Login') {
