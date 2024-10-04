@@ -6,7 +6,7 @@
 
 cd /root/gitrepos/docker_pipeline
 
-touch file_for_date_stamp_change_only
+date >  file_just_for_code_change_trigger
 
 git add . ; git commit -am "new changes as of `date`" ; git push
 
