@@ -20,6 +20,10 @@ pipeline {
     }
     stage('Push') {
       steps {
+        sh "echo Now showing outputs of docker ps, ls -a and ls" 
+        sh 'docker ps'
+        sh 'docker ls -a'
+        sh 'docker ls'
         sh 'docker push unixadm/ubtest:latest'
       }
     }
