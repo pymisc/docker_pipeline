@@ -1,2 +1,4 @@
 echo "This is a test"
-return 1
+
+# Enable below line to intentionally fail pipeline! :D 
+# return 1
