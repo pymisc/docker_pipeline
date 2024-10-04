@@ -9,7 +9,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker buildx build pymisc/docker_pipeline'
+        sh 'chmod 755 $HOME'
+        sh 'docker build pymisc/docker_pipeline .'
       }
     }
     stage('Login') {
