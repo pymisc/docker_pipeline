@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build pymisc/docker_pipeline .'
+        sh 'docker build pymisc/docker_pipeline'
       }
     }
     stage('Login') {
