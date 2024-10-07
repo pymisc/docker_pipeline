@@ -1,0 +1,21 @@
+FROM centos:8.3.2011
+
+# set version label
+ARG BUILD_DATE
+ARG VERSION
+LABEL build_version="NGPC-ACC version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="Vikas Sharma"
+
+WORKDIR /root
+RUN yum -y install wget openssl which openssh-clients OpenIPMI OpenIPMI-tools
+RUN ln -s /usr/lib64/libssl.so.1.1 /usr/lib64/libssl.so
+RUN wget http://XXXXXX/foreman/cli/DellEMC-iDRACTools-Web-LX-9.4.0-3732_A00.tar.gz
+RUN tar xvfz DellEMC-iDRACTools-Web-LX-9.4.0-3732_A00.tar.gz
+RUN rm -f DellEMC-iDRACTools-Web-LX-9.4.0-3732_A00.tar.gz
+WORKDIR /root/iDRACTools/racadm
+RUN ./install_racadm.sh
+WORKDIR /root
+RUN rm -fr /root/iDRACTools
+RUN mkdir .ssh
+COPY acc-boot /usr/local/bin/
+RUN chmod +x /usr/local/bin/acc-boot
